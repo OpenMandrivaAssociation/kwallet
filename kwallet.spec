@@ -4,7 +4,7 @@
 %define debug_package %{nil}
 
 Name: kwallet5
-Version: 5.1.0
+Version: 5.3.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/frameworks/%{version}/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
@@ -51,8 +51,9 @@ KWallet is an abstraction to password storage.
 %makeinstall_std -C build
 mkdir -p %{buildroot}%{_libdir}/qt5
 mv %{buildroot}%{_prefix}/mkspecs %{buildroot}%{_libdir}/qt5
+%find_lang kwalletd5
 
-%files
+%files -f kwalletd5.lang
 %{_bindir}/kwalletd%{major}
 %{_datadir}/dbus-1/*/*
 %{_datadir}/knotifications5/*
