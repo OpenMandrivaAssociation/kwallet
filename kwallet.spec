@@ -13,6 +13,7 @@ URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
+BuildRequires: ninja
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5WindowSystem)
@@ -43,15 +44,14 @@ KWallet is an abstraction to password storage.
 
 %prep
 %setup -q -n kwallet-%{version}
-%cmake
+%cmake -G Ninja \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %build
-%make -C build
+ninja -C build
 
 %install
-%makeinstall_std -C build
-mkdir -p %{buildroot}%{_libdir}/qt5
-mv %{buildroot}%{_prefix}/mkspecs %{buildroot}%{_libdir}/qt5
+DESTDIR="%{buildroot}" ninja install -C build
 %find_lang kwalletd5
 
 %files -f kwalletd5.lang
