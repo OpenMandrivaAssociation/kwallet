@@ -18,6 +18,7 @@ BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Notifications)
+BuildRequires: cmake(Qt5Test)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: qmake5
