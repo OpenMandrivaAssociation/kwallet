@@ -22,7 +22,7 @@ BuildRequires: cmake(Qt5Test)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: qmake5
-BuildRequires: extra-cmake-modules5
+BuildRequires: cmake(ECM)
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -46,14 +46,14 @@ KWallet is an abstraction to password storage.
 
 %prep
 %setup -q -n kwallet-%{version}
-%cmake -G Ninja \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+%cmake_kde5
 
 %build
-ninja -C build
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja install -C build
+%ninja_install -C build
+
 %find_lang kwalletd5
 
 %files -f kwalletd5.lang
