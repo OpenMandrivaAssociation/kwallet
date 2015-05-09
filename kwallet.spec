@@ -5,15 +5,14 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet5
-Version: 5.9.0
+Version: 5.10.0
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-BuildRequires: cmake
-BuildRequires: ninja
+BuildRequires: cmake(ECM)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5WindowSystem)
@@ -21,8 +20,6 @@ BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Test)
-BuildRequires: qmake5
-BuildRequires: cmake(ECM)
 Requires: %{libname} = %{EVRD}
 
 %description
