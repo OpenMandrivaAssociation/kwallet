@@ -18,10 +18,20 @@ BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5DocTools)
-BuildRequires: cmake(KF5Gpgmepp)
-BuildRequires: cmake(Qt5Test)
-BuildRequires: pkgconfig(Qt5Core)
-BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(KF5CoreAddons)
+BuildRequires: cmake(KF5DBusAddons)
+BuildRequires: cmake(KF5Service)
+BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5WindowSystem)
+# TODO: KF5Gpgmepp from PIM, not ready yet
+BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	gpgme-devel
 Requires: %{libname} = %{EVRD}
 
 %description
