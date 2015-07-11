@@ -64,12 +64,16 @@ KWallet is an abstraction to password storage.
 %ninja_install -C build
 
 %find_lang kwalletd5
+%find_lang kwallet-query
 
-%files -f kwalletd5.lang
+
+%files -f kwalletd5.lang,kwallet-query.lang
 %{_bindir}/kwalletd%{major}
+%{_bindir}/kwallet-query
 %{_datadir}/dbus-1/*/*
 %{_datadir}/knotifications5/*
 %{_datadir}/kservices5/*
+%{_mandir}/man1/kwallet-query.1.*
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
