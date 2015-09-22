@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kwallet-5.13.0.tar.xz: f25f6b96ae3d7d796af6bc29e1712f4d78f833aa
+sources:
+  kwallet-5.14.0.tar.xz: 35a82a378dc78bde2b66ffb631e6d732089b4786
