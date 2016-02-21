@@ -5,8 +5,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet5
-Version:	5.19.0
-Release:	1
+Version: 5.19.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
 URL: http://kde.org/
@@ -24,14 +24,14 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5Service)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
-# TODO: KF5Gpgmepp from PIM, not ready yet
-BuildRequires:	pkgconfig(libgcrypt)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5DBus)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Test)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	gpgme-devel
+BuildRequires: cmake(KF5Gpgmepp)
+BuildRequires: pkgconfig(libgcrypt)
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5DBus)
+BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: gpgme-devel
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -65,7 +65,6 @@ KWallet is an abstraction to password storage.
 
 %find_lang kwalletd5
 %find_lang kwallet-query
-
 
 %files -f kwalletd5.lang,kwallet-query.lang
 %{_bindir}/kwalletd%{major}
