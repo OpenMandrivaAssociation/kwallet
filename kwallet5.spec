@@ -24,7 +24,11 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5Service)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
+%if %mdvver > 3000001
+BuildRequires: cmake(Gpgmepp)
+%else
 BuildRequires: cmake(KF5Gpgmepp)
+%endif
 BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
