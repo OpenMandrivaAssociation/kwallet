@@ -35,7 +35,8 @@ BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
-BuildRequires: gpgme-devel
+BuildRequires: cmake(Gpgmepp)
+BuildRequires: cmake(QGpgme)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
 
