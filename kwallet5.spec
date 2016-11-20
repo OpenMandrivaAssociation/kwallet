@@ -25,7 +25,14 @@ BuildRequires: cmake(KF5Service)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
 %if %mdvver > 3000001
-BuildRequires: cmake(Gpgmepp)
+# FIXME should do the right thing here:
+#BuildRequires: cmake(Gpgmepp)
+#BuildRequires: cmake(QGpgme)
+# But currently there's conflicts because kdepimlibs4-devel provides
+# cmake(QGpgme) as well and lib64GpgMePp5 vs. lib64gpgmepp6 confusion
+BuildRequires: %{_lib}gpgme-devel >= 1.8.0-2
+BuildRequires: %{_lib}gpgmepp-devel >= 1.8.0-2
+BuildRequires: %{_lib}qgpgme-devel >= 1.8.0-2
 %else
 BuildRequires: cmake(KF5Gpgmepp)
 %endif
@@ -35,8 +42,6 @@ BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
-BuildRequires: cmake(Gpgmepp)
-BuildRequires: cmake(QGpgme)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
 
