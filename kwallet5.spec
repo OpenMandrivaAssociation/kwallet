@@ -6,7 +6,7 @@
 
 Name: kwallet5
 Version: 5.29.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
 URL: http://kde.org/
@@ -24,7 +24,7 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5Service)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
-%if %mdvver > 3000001
+%if %mdvver > 3000000
 # FIXME should do the right thing here:
 #BuildRequires: cmake(Gpgmepp)
 #BuildRequires: cmake(QGpgme)
