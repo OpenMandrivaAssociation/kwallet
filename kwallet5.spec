@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet5
-Version: 5.40.0
+Version: 5.42.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
@@ -84,6 +84,7 @@ KWallet is an abstraction to password storage.
 %{_datadir}/knotifications5/*
 %{_datadir}/kservices5/*
 %{_mandir}/man1/kwallet-query.1.*
+%{_sysconfdir}/xdg/kwallet.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
