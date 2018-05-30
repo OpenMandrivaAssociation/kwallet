@@ -15,6 +15,7 @@ Group: System/Libraries
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(KF5IconThemes)
 BuildRequires: cmake(KF5Config)
+BuildRequires: cmake(KF5ConfigWidgets)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5DocTools)
