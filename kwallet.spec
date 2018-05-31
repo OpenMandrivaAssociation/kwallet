@@ -37,6 +37,7 @@ BuildRequires: %{_lib}qgpgme-devel >= 1.8.0-2
 %else
 BuildRequires: cmake(KF5Gpgmepp)
 %endif
+BuildRequires: %{_lib}assuan-devel
 BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
