@@ -47,6 +47,7 @@ BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: boost-devel
 Requires: %{libname} = %{EVRD}
+%rename kwallet5
 
 %description
 KWallet is an abstraction to password storage.
