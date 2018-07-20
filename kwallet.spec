@@ -80,7 +80,7 @@ KWallet is an abstraction to password storage.
 
 %find_lang kwalletd5 kwallet-query
 
-%files -f kwalletd5.lang, kwallet-query.lang
+%files -f kwalletd5.lang -f kwallet-query.lang
 %{_bindir}/kwalletd%{major}
 %{_bindir}/kwallet-query
 %{_datadir}/dbus-1/*/*
