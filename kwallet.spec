@@ -5,8 +5,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet
-Version: 5.56.0
-Release: 2
+Version: 5.57.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
 URL: http://kde.org/
@@ -46,6 +46,8 @@ BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: boost-devel
+# For QCH format docs
+BuildRequires: qt5-assistant
 Requires: %{libname} = %{EVRD}
 %rename kwallet5
 
@@ -68,8 +70,16 @@ Requires: %{libname} = %{EVRD}
 %description -n %{devname}
 KWallet is an abstraction to password storage.
 
+%package -n %{name}-devel-docs
+Summary: Developer documentation for %{name} for use with Qt Assistant
+Group: Documentation
+Suggests: %{devname} = %{EVRD}
+
+%description -n %{name}-devel-docs
+Developer documentation for %{name} for use with Qt Assistant
+
 %prep
-%setup -q -n kwallet-%{version}
+%autosetup -p1 -n kwallet-%{version}
 %cmake_kde5
 
 %build
@@ -99,3 +109,6 @@ KWallet is an abstraction to password storage.
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5Wallet
 %{_libdir}/qt5/mkspecs/modules/*
+
+%files -n %{name}-devel-docs
+%{_docdir}/qt5/*.{tags,qch}
