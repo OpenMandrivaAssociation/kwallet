@@ -47,6 +47,7 @@ BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: boost-devel
 # For QCH format docs
+BuildRequires: doxygen
 BuildRequires: qt5-assistant
 Requires: %{libname} = %{EVRD}
 %rename kwallet5
