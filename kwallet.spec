@@ -24,6 +24,7 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5Service)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(Qca-qt5)
 %if %mdvver >= 3000000
 # FIXME should do the right thing here:
 #BuildRequires: cmake(Gpgmepp)
