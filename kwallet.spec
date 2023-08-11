@@ -5,7 +5,7 @@
 
 Name: kwallet
 Version: 5.108.0
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/kwallet-%{version}.tar.xz
 Summary: The KDE Frameworks 5 password storage library
 URL: http://kde.org/
@@ -51,6 +51,8 @@ BuildRequires: doxygen
 BuildRequires: qt5-assistant
 Requires: %{libname} = %{EVRD}
 %rename kwallet5
+Recommends: kwalletd
+Recommends: kwallet-query
 
 %description
 KWallet is an abstraction to password storage.
@@ -81,26 +83,24 @@ Developer documentation for %{name} for use with Qt Assistant
 
 %prep
 %autosetup -p1 -n kwallet-%{version}
-%cmake_kde5
+# We get kwalletd and kwallet-query from kf6-kwallet
+%cmake_kde5 \
+	-DBUILD_KWALLETD:BOOL=OFF \
+	-DBUILD_KWALLET_QUERY:BOOL=OFF
 
 %build
 %ninja -C build
 
 %install
 %ninja_install -C build
+# We don't need translations for components that are
+# now disabled (kwalletd and kwallet-query), and those
+# are the only translations shipped with kwallet
+rm -rf %{buildroot}%{_datadir}/locale
 
-%find_lang kwalletd5
-%find_lang kwallet-query
-
-%files -f kwalletd5.lang -f kwallet-query.lang
-%{_bindir}/kwalletd%{major}
-%{_bindir}/kwallet-query
+%files
 %{_datadir}/dbus-1/*/*
-%{_datadir}/knotifications5/*
-%{_datadir}/kservices5/*
-%{_mandir}/man1/kwallet-query.1.*
 %{_datadir}/qlogging-categories5/kwallet.*categories
-%{_datadir}/applications/org.kde.kwalletd5.desktop
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
